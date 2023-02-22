@@ -1,0 +1,67 @@
+<!-- 
+<form #f="ngForm">
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" name="id" placeholder="Enter id" [(ngModel)]="product.id" required minlength="1" #test="ngModel">
+      </div>
+    <div class="form-group">
+      <label for="title">title</label>
+      <input type="text" class="form-control" name="title" placeholder="Enter Title" [(ngModel)]="product.title">
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="text price" class="form-control" name="price" placeholder="Enter price" [(ngModel)]="product.price">
+    </div>
+    <div class="form-group">
+        <label for="quantity">Quantity</label>
+        <input type="text" class="form-control" name="quantity" placeholder="Enter quantity" [(ngModel)]="product.quantity">
+    </div>
+
+  <div *ngIf="test.errors?.['required']" >
+    <p class="text-danger">Id is required</p>
+</div>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid == null">Submit</button>
+  </form>
+
+{{product.id}}
+{{product.title}}
+{{product.price}}
+{{product.quantity}} -->
+
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+  <h2>Information générales</h2>
+  <div>
+    <label for="name">Nom:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="PaymentFormComponent.name" required>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="PaymentFormComponent.email" required>
+  </div>
+
+  <h2>Information de paiement</h2>
+  <div>
+    <label for="cardType">Type de carte:</label>
+    <select id="cardType" name="cardType" [(ngModel)]="PaymentFormComponent.cardType" required>
+      <option value="">Sélectionnez un type de carte</option>
+      <option value="visa">Visa</option>
+      <option value="mastercard">Mastercard</option>
+      <option value="amex">American Express</option>
+    </select>
+  </div>
+  <div>
+    <label for="cardNumber">Numéro de carte:</label>
+    <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="PaymentFormComponent.cardNumber" required>
+  </div>
+  <div>
+    <label for="expiryDate">Date d'expiration:</label>
+    <input type="text" id="expiryDate" name="expiryDate" [(ngModel)]="PaymentFormComponent.expiryDate" required>
+  </div>
+  <div>
+    <label for="cvc">Code de sécurité (CVC):</label>
+    <input type="text" id="cvc" name="cvc" [(ngModel)]="PaymentFormComponent.cvc" required>
+  </div>
+
+  <button type="submit">Payer</button>
+</form>

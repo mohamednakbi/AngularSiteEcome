@@ -1,0 +1,36 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+      <h2>Information générales</h2>
+      <div>
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="name" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="email" required>
+      </div>
+
+      <h2>Information de paiement</h2>
+      <div>
+        <label for="cardType">Type de carte:</label>
+        <select id="cardType" name="cardType" [(ngModel)]="cardType" required>
+          <option value="">Sélectionnez un type de carte</option>
+          <option value="visa">Visa</option>
+          <option value="mastercard">Mastercard</option>
+          <option value="amex">American Express</option>
+        </select>
+      </div>
+      <div>
+        <label for="cardNumber">Numéro de carte:</label>
+        <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="cardNumber" required>
+      </div>
+      <div>
+        <label for="expiryDate">Date d'expiration:</label>
+        <input type="text" id="expiryDate" name="expiryDate" [(ngModel)]="expiryDate" required>
+      </div>
+      <div>
+        <label for="cvc">Code de sécurité (CVC):</label>
+        <input type="text" id="cvc" name="cvc" [(ngModel)]="cvc" required>
+      </div>
+
+      <button type="submit">Payer</button>
+    </form>
